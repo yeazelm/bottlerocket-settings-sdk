@@ -1336,6 +1336,8 @@ pub struct CredentialProvider {
 pub enum KubernetesCPUManagerPolicyOption {
     #[serde(rename = "full-pcpus-only")]
     FullPCPUsOnly,
+    #[serde(rename = "strict-cpu-reservation")]
+    StrictCpuReservation,
 }
 
 #[cfg(test)]
