@@ -1635,6 +1635,7 @@ pub struct NvidiaTimeSlicingSettings {
 #[model(impl_default = true)]
 pub struct NvidiaMpsSettings {
     replicas: BoundedI32<MPS_REPLICAS_MIN, MPS_REPLICAS_MAX>,
+    rename_by_default: bool,
     default_active_thread_percentage: Option<BoundedI32<MPS_THREAD_PERCENTAGE_MIN, MPS_THREAD_PERCENTAGE_MAX>>,
     default_pinned_device_memory_limit: Option<String>,
     default_per_device_pinned_memory_limit: Option<HashMap<String, String>>,
