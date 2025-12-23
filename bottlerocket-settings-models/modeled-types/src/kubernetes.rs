@@ -28,10 +28,6 @@ const TIME_SLICING_REPLICAS_MAX: i32 = i32::MAX;
 const MPS_REPLICAS_MIN: i32 = 2;
 const MPS_REPLICAS_MAX: i32 = i32::MAX;
 
-// Define the bounds for the `mps.default-active-thread-percentage` field
-const MPS_THREAD_PERCENTAGE_MIN: i32 = 1;
-const MPS_THREAD_PERCENTAGE_MAX: i32 = 100;
-
 
 /// KubernetesName represents a string that contains a valid Kubernetes resource name.  It stores
 /// the original string and makes it accessible through standard traits.
@@ -1636,9 +1632,6 @@ pub struct NvidiaTimeSlicingSettings {
 pub struct NvidiaMpsSettings {
     replicas: BoundedI32<MPS_REPLICAS_MIN, MPS_REPLICAS_MAX>,
     rename_by_default: bool,
-    default_active_thread_percentage: Option<BoundedI32<MPS_THREAD_PERCENTAGE_MIN, MPS_THREAD_PERCENTAGE_MAX>>,
-    default_pinned_device_memory_limit: Option<String>,
-    default_per_device_pinned_memory_limit: Option<HashMap<String, String>>,
 }
 
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize, Default)]
